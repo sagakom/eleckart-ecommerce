@@ -2,7 +2,7 @@
 @include('layouts.design')
 
 @section('title')
-    Admin-Order
+    Admin-Shipping Order
 @endsection
 
 @section('content1')

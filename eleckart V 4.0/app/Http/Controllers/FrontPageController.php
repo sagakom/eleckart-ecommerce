@@ -20,6 +20,10 @@ class FrontPageController extends Controller
     public function alert_message($email){
         return view('alerts.customer_alert')->with('email',$email);
     }
+    public function pending_message($email){
+        return view('alerts.vendor_pending')->with('email',$email);
+
+    }
 
     /**
      * Show the form for creating a new resource.
