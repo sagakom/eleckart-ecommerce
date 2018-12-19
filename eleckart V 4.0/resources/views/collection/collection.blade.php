@@ -267,7 +267,7 @@
 
             {{-- ajax data --}}
             <div class="container ajaxdata" style="display: none;">
-                <div class="flex-container" id="success">
+                <div class="flex-container" id="success" >
 
                     {{--{!! $product_cat->links() !!}--}}
                 </div>

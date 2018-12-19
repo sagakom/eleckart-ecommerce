@@ -64,7 +64,7 @@ class collectionController extends Controller
                 ->join('discount','discount.product_id','=','products.product_id')
                 ->where('products.product_name','like','%'.$request->search.'%')
                 ->orWhere('categories.category_name','like','%'.$request->search.'%')
-                ->paginate(4)
+                ->paginate(8)
                 ->setPath ( '' );
 
             $pagination = $product_data->appends ( array (

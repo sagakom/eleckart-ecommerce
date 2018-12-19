@@ -20,7 +20,7 @@ class searchController extends Controller
                 ->where('products.product_name','like','%'.$request->search_product.'%')
                 ->orWhere('categories.category_name','like','%'.$request->search_product.'%')
                 ->orWhere('brands.brand_name','like','%'.$request->search_product.'%')
-                ->paginate(4)
+                ->paginate(8)
                 ->setPath ( '' );
 
             $pagination = $product_data->appends ( array (
@@ -84,7 +84,7 @@ class searchController extends Controller
                  $product_data = DB::table('products')
                      ->join('discount','discount.product_id','=','products.product_id')
                      ->orderBy('products.product_avg_rating','desc')
-                     ->paginate(4)
+                     ->paginate(8)
                      ->setPath ( '' );
 
                 $pagination = $product_data->appends ( array (
@@ -108,7 +108,7 @@ class searchController extends Controller
                     ->join('discount','discount.product_id','=','products.product_id')
 
                     ->orderBy('products.product_price','asc')
-                    ->paginate(4)
+                    ->paginate(8)
                     ->setPath ( '' );
 
                 $pagination = $product_data->appends ( array (
@@ -141,7 +141,7 @@ class searchController extends Controller
                     ->join('discount','discount.product_id','=','products.product_id')
 
                     ->orderBy('products.product_price','desc')
-                    ->paginate(4)
+                    ->paginate(8)
                     ->setPath ( '' );
 
                 $pagination = $product_data->appends ( array (
@@ -171,7 +171,7 @@ class searchController extends Controller
                 ->join('discount','discount.product_id','=','products.product_id')
                 ->join('categories', 'categories.category_id', '=', 'products.category_id')
                 ->orderBy('products.product_avg_rating','desc')
-                ->paginate(4)
+                ->paginate(8)
                 ->setPath ( '' );
 
             $pagination = $product_data->appends ( array (
@@ -241,7 +241,7 @@ class searchController extends Controller
                 ->join('discount','discount.product_id','=','products.product_id')
                 ->join('categories', 'categories.category_id', '=', 'products.category_id')
                 ->orderBy('products.product_price','desc')
-                ->paginate(4)
+                ->paginate(8)
                 ->setPath ( '' );
 
             $pagination = $product_data->appends ( array (

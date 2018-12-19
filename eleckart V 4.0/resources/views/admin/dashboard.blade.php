@@ -92,7 +92,7 @@
                                                       <div class="col-sm-4">
                                                             <div class="jumbotron container" id="total_categories">
                                                                     <h4>total categories</h3>
-                                                                        <li> in total ({{$total_brands}}) </li>
+                                                                        <li> in total ({{$total_categories}}) </li>
 
                                         
                                                             </div>
@@ -102,7 +102,7 @@
                                                       <div class="col-sm-4">
                                                             <div class="jumbotron container" id="total_brands">
                                                                     <h4>total brands</h3>
-                                                                         <li> in total ({{$total_categories}}) </li>
+                                                                         <li> in total ({{$total_brands}}) </li>
                                         
                                                             </div>
                                                       </div>

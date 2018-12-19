@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\brandNameValidationRequest;
 use App\Http\Requests\categoryNameValidationRequest;
+use Illuminate\Support\Facades\Mail;
 
 class adminController extends Controller
 {
@@ -1073,6 +1074,19 @@ class adminController extends Controller
     {
         //
         $id = DB::table('users')->where('email', $email)->pluck('id')->first();
+
+        $data = [
+            'email'   => $email,
+
+        ];
+        Mail::send('emails.message', $data, function($message) use ($data)
+        {
+            $message->from('eleckart2018@gmail.com');
+            $message->to($data['email'],'Eleckart');
+
+        });
+
+
         // dd($id);
         DB::table('vendors')->where('email', $email)->delete();
 
@@ -1082,6 +1096,10 @@ class adminController extends Controller
 
 
         DB::table('users')->where('email', $email)->delete();
+
+
+
+
         return redirect()->route('admin.vendor');
 
 
@@ -1131,6 +1149,18 @@ class adminController extends Controller
     {
         DB::table('customers')->where('email', $email)->delete();
         DB::table('users')->where('email', $email)->delete();
+
+
+        $data = [
+            'email'   => $email,
+
+        ];
+        Mail::send('emails.message', $data, function($message) use ($data)
+        {
+            $message->from('eleckart2018@gmail.com');
+            $message->to($data['email'],'Eleckart');
+
+        });
 
         return redirect()->route('admin.customer');
     }
